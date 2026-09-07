@@ -78,6 +78,7 @@ def tokenize_and_align_labels(examples):
 
 train_tokenized_datasets = dataset["train"].map(tokenize_and_align_labels, batched=True)
 test_tokenized_datasets = dataset["test"].map(tokenize_and_align_labels, batched=True)
+validation_tokenized_datasets = dataset["validation"].map(tokenize_and_align_labels, batched=True)
 
 metric = evaluate.load("seqeval")
 
@@ -103,7 +104,7 @@ trainer = Trainer(
     model,
     args,
     train_dataset=train_tokenized_datasets,
-    eval_dataset=test_tokenized_datasets,
+    eval_dataset=validation_tokenized_datasets,
     data_collator=data_collator,
     compute_metrics=compute_metrics
 )
