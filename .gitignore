@@ -10,3 +10,7 @@ __pycache__/
 
 # visual studio
 .vs/
+
+# training artifacts
+model/saved
+trainer_output

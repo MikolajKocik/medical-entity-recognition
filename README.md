@@ -18,6 +18,65 @@ O, B-Disease, I-Disease, B-Chemical, I-Chemical
 - Python >=3.11 ;
 - Docker engine
 
+## Installation
+
+From the project root, create and activate a virtual environment, then install
+the project dependencies:
+
+Windows:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+Linux:
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+## Training hardware
+
+The models were trained locally using the following GPU configuration:
+
+| Component | Specification |
+| --- | --- |
+| GPU | NVIDIA GeForce GTX 1660 SUPER |
+| GPU memory | 6 GB (6144 MiB) |
+| NVIDIA driver | 560.94 |
+| CUDA | 12.6 |
+| GPU utilization during training | 100% |
+
+The training environment used CUDA-enabled PyTorch, with CUDA detected by the
+training process.
+
+## Preliminary training results
+
+Both models were trained for 3 epochs on the BC5CDR dataset:
+
+| Model | Training time | Training loss |
+| --- | ---: | ---: |
+| BERT cased | 669.4 seconds (11.2 minutes) | 0.2175 |
+| BERT uncased | 1229 seconds (20.5 minutes) | 0.1935 |
+
+The logs and GPU usage captured during these runs are included below:
+
+### Cased model
+
+![Cased model training log](docs/cased-training.PNG)
+
+### Uncased model
+
+![Uncased model training log](docs/uncased-training.PNG)
+
+### GPU usage
+
+![GPU usage during training](docs/GPU.PNG)
+
 # A quick usage example
 Predictions:
 

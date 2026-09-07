@@ -12,10 +12,15 @@ dependencies = [
     "grpcio",
     "grpcio-tools",
     "pydantic",
-    "datasets",
+    "datasets>=3.0,<4.0",
+    "bioc",
     "evaluate",
+    "accelerate",
     "seqeval",
-    "numpy"
+    "numpy",
+    "python-multipart",
+    "pypdf",
+    "python-docx"
 ]
 
 [build-system]
