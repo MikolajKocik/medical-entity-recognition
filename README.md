@@ -1,5 +1,5 @@
 # The project purpose
-The purpose of this project is to analyze and evaluate two different BERT models using NER approach on medical entities, where one of them is an uncased and sthe other one cased.
+The purpose of this project is to analyze and evaluate two different BERT models using NER approach on medical entities, where one of them is uncased and the other one is cased.
 
 Cased preserve the letter casing.
 Uncased does not do that.
@@ -77,7 +77,30 @@ The logs and GPU usage captured during these runs are included below:
 
 ![GPU usage during training](docs/GPU.PNG)
 
-# A quick usage example
+## Evaluation results
+
+Both models were evaluated on the BC5CDR test dataset using token-level NER
+metrics calculated with `seqeval`:
+
+| Model | Precision | Recall | F1 | Accuracy |
+| --- | ---: | ---: | ---: | ---: |
+| BERT cased | 0.684 | 0.798 | 0.737 | 0.950 |
+| BERT uncased | 0.757 | 0.837 | 0.795 | 0.957 |
+
+The uncased model achieved better results on every reported metric. Its F1
+score was 0.058 higher than the cased model, while accuracy improved by 0.007.
+
+### Cased model evaluation
+
+![Cased model evaluation metrics](model/evals/cased_plots/evaluation_metrics.png)
+
+### Uncased model evaluation
+
+![Uncased model evaluation metrics](model/evals/uncased_plots/evaluation_metrics.png)
+
+This suggests that preserving letter casing was not necessary for recognizing diseases and chemicals in this dataset. However, the result should not be generalized to all medical NER datasets without additional experiments.
+
+# A quick usage example for user input
 Predictions:
 
 ```bash
