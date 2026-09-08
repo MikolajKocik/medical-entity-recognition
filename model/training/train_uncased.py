@@ -109,11 +109,16 @@ trainer = Trainer(
     compute_metrics=compute_metrics
 )
 
-trainer.train()
-trainer.evaluate()
+def main():
+    trainer.train()
+    trainer.evaluate()
 
-save_dir = Path(__file__).resolve().parents[1] / "saved" / "un-ner.model"
-save_dir.parent.mkdir(parents=True, exist_ok=True)
+    save_dir = Path(__file__).resolve().parents[1] / "saved" / "un-ner.model"
+    save_dir.parent.mkdir(parents=True, exist_ok=True)
 
-trainer.save_model(str(save_dir))
-tokenizer.save_pretrained(str(save_dir))
+    trainer.save_model(str(save_dir))
+    tokenizer.save_pretrained(str(save_dir))
+
+
+if __name__ == "__main__":
+    main()
