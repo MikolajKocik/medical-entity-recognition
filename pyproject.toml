@@ -20,8 +20,16 @@ dependencies = [
     "numpy",
     "python-multipart",
     "pypdf",
-    "python-docx"
+    "python-docx",
+    "matplotlib",
+    "seaborn"
 ]
+
+[project.scripts]
+evaluate-cased = "model.evals.cased_eval:main"
+evaluate-uncased = "model.evals.uncased_eval:main"
+train-cased = "model.training.train_cased:main"
+train-uncased = "model.training.train_uncased:main"
 
 [build-system]
 requires = ["setuptools>=61.0.0"]
